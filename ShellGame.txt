@@ -1,0 +1,43 @@
+Derick Warshaw // Lab 5 // COSC1337
+
+Problem: Randomly pick one of three shells to hold a stone and ask the user to guess which shell holds the stone.  If the user is correct, they win $1;  if they are wrong, they owe $2.
+         Run the game 5 times and display the number of wins and losses each time the game is run, and the total dollar value won/lost from the 5 runs.
+Inputs: user selection
+Outputs: outcome of whether they picked the right shell or not, number of wins, number of losses, total value won/lost from 5 runs
+Formulas: none
+
+start processing
+SET shell equal to zero
+SET game equal to one
+SET hidden stone to zero
+SET wins to zero
+SET losses to zero
+SET winnings to zero
+LOOP while the game is less than five
+	SET hidden stone to a random number between and including one and three
+	INPUT the shell the user thinks has the stone under it
+	LOOP as long as the shell the user selected was less than one or greater than three
+		DISPLAY error message
+		INPUT the shell the user thinks has the stone under it
+	END-LOOP
+	IF the shell the user selects is equal to the randomly hidden stone
+		DISPLAY congratulations to the user for picking the correct shell
+		add one to game
+		add one to wins
+		SET winnings equal to winnings plus one
+	END-IF
+	IF the shell the user selects is not equal to the randomly hidden stone
+		DISPLAY message telling the user they picked the wrong shell
+		add one to game
+		add one to losses
+		SET winnings equal to winnings minus two
+	END-IF
+END-LOOP
+DISPLAY wins and losses
+IF winnings was a positive value
+	DISPLAY winnings
+END-IF
+IF winnings was a negative value
+	DISPLAY that the user owes winnings multiplied by -1
+END-IF
+end processing
